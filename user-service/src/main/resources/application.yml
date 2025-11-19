@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: user-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/fitness_user_db
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update # Good for development; use 'none' for production
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
