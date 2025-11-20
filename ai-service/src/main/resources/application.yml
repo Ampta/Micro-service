@@ -8,6 +8,11 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/fitness_recommendation
       database: fitness_recommendation
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
@@ -18,3 +23,11 @@ eureka:
     # This instructs Eureka to register the IP address of the user-service
     # instead of its internal hostname (LAPTOP-1IESOV53.mshome.net).
     prefer-ip-address: true
+
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
