@@ -1,6 +1,8 @@
 package com.ampta.ai_service.service;
 
 import com.ampta.ai_service.model.Activity;
+import com.ampta.ai_service.model.Recommendation;
+import com.ampta.ai_service.repository.RecommendationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -12,10 +14,15 @@ import org.springframework.stereotype.Service;
 public class ActivityMessageListener {
 
     private final ActivityAiService activityAiService;
+    private final RecommendationRepository recommendationRepository;
 
     @RabbitListener(queues = "activity.queue")
     public void processActivity(Activity activity){
         log.info("Received activity for processing: {}", activity.getId());
-        log.info("Generate recommendation: {}", activityAiService.generateRecommendation(activity));
+//        log.info("Generate recommendation: {}", activityAiService.generateRecommendation(activity));
+
+        Recommendation recommendation = activityAiService.generateRecommendation(activity);
+        recommendationRepository.save(recommendation);
     }
+
 }
