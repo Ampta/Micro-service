@@ -1,27 +1,5 @@
-server:
-  port: 8081
-
 spring:
   application:
     name: user-service
-
-  datasource:
-    url: jdbc:mysql://localhost:3306/fitness_user_db
-    username: root
-    password: root
-
-  jpa:
-    hibernate:
-      ddl-auto: update # Good for development; use 'none' for production
-    database-platform: org.hibernate.dialect.MySQLDialect
-    show-sql: true
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
-  instance:
-    # This instructs Eureka to register the IP address of the user-service
-    # instead of its internal hostname (LAPTOP-1IESOV53.mshome.net).
-    prefer-ip-address: true
+  config:
+    import: optional:configserver:http://localhost:8888
