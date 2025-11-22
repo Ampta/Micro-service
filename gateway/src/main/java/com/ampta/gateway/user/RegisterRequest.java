@@ -1,4 +1,4 @@
-package com.ampta.user_service.dto;
+package com.ampta.gateway.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

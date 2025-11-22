@@ -1,4 +1,4 @@
-package com.ampta.user_service.dto;
+package com.ampta.gateway.user;
 
 import lombok.Data;
 
