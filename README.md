@@ -68,4 +68,78 @@ GEMINI_API_KEY=AIzaSy_YOUR_REAL_API_KEY_HERE
 
 GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=
 ---
+```
 
+# Micro-service Application Setup Guide
+
+Follow these steps to build, run, and configure the application locally.
+
+## 1. Installation & Build
+
+First, clone the repository and build the project using the Maven wrapper.
+
+```bash
+# Clone the repository
+git clone [https://github.com/Ampta/Micro-service.git](https://github.com/Ampta/Micro-service.git)
+
+# Build the project (skipping tests for speed)
+.\mvnw clean package -DskipTests
+```
+## 2. Running the Application
+Use Docker Compose to build the images and start the containers in detached mode.
+
+```bash
+docker-compose up -d --build
+```
+
+## 3. Keycloak Configuration
+
+Once the containers are running, you need to configure the Identity Provider (Keycloak).
+
+**Access Keycloak:**
+* **URL:** http://localhost:8181
+* **Username:** `admin`
+* **Password:** `admin`
+
+#### Step A: Create Realm
+1. Hover over the **Master** realm dropdown in the top-left corner.
+2. Click **Create Realm**.
+3. **Realm Name:** `fitness-oauth2`
+4. Click **Create**.
+
+#### Step B: Create Client
+1. Go to the **Clients** tab (left sidebar) and click **Create Client**.
+2. **Client ID:** `oauth2-pkce-client`
+3. Click **Next**.
+4. **Capability Config:**
+   * Ensure **Standard Flow** is checked.
+   * Ensure **Direct Access Grants** is checked.
+5. Click **Next**.
+6. **Access Settings:**
+   * **Valid Redirect URIs:** `http://localhost:5173`
+   * **Web Origins:** `http://localhost:5173` (or simply `+`)
+7. Click **Save**.
+
+#### Step C: Advanced Settings (PKCE)
+1. Inside the `oauth2-pkce-client` settings, click the **Advanced** tab.
+2. Scroll down to the **Proof Key for Code Exchange (PKCE)** section.
+3. **Code Challenge Method:** Select `S256`.
+4. Click **Save**.
+
+#### Step D: Create User
+1. Go to the **Users** tab (left sidebar) and click **Create new user**.
+2. **Username:** `user1`
+3. Click **Create**.
+4. Click the **Credentials** tab at the top.
+5. **Set Password:** `pass`
+6. Toggle **Temporary** to **Off**.
+7. Click **Save**.
+
+---
+
+## 4. Stopping the Application
+
+To stop all services, remove the containers, and clean up the networks, run:
+
+```bash
+docker compose down
