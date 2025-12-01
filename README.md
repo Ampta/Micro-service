@@ -1,3 +1,7 @@
+
+<img width="3978" height="1975" alt="architeture" src="https://github.com/user-attachments/assets/359e7e79-92b2-4b0e-9d98-7d6c00c72dee" />
+
+
 ## 🏋️ Fitness AI Microservices Platform
 
 A robust, production-ready Microservices architecture built with **Spring Boot 3**, **Spring Cloud**, and **Docker**. This platform features an event-driven design, AI-powered recommendations (Google Gemini), centralized security (Keycloak), and a self-healing infrastructure.
