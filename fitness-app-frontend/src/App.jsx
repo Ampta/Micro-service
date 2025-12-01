@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router'
 import { setCreadentials } from './store/authSlice'
 import ActivityDetails from './components/ActivityDetails'
-import Update from './components/Footer'
 import ActivityForm from './components/ActivityForm'
 import ActivityList from './components/ActivityList'
 import WhoAmI from './components/WhoAmI'
@@ -78,7 +77,6 @@ const App = () => {
             justifyContent: 'center',
             // A modern, subtle gradient background
             background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-            p: 2,
           }}
         >
 
@@ -170,7 +168,7 @@ const App = () => {
               scrollBehavior: 'smooth'
             }}
             >
-              
+
             <Routes>
               <Route path='/who' element={<WhoAmI token={token} tokenData={tokenData} />} />
               <Route path='/activities' element={<ActivitiesPage />} />

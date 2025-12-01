@@ -21,7 +21,7 @@ const Navbar = ({ logOut }) => {
           Fitness App
         </Typography>
 
-        {/* RIGHT SIDE — LOGOUT BUTTON */}
+        {/* RIGHT SIDE — LOGOUT BUTTON
         <Button 
           variant="contained" 
           color="warning" 
@@ -29,7 +29,7 @@ const Navbar = ({ logOut }) => {
           onClick={() => navigate(`/who`)}
         >
           Who
-        </Button>
+        </Button> */}
 
         <Button 
           variant="contained" 

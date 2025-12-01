@@ -1,3 +1,42 @@
+#server:
+#  port: 8083
+#
+#spring:
+#  application:
+#    name: ai-service
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/fitness_recommendation
+#      database: fitness_recommendation
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#
+#  instance:
+#    # This instructs Eureka to register the IP address of the user-service
+#    # instead of its internal hostname (LAPTOP-1IESOV53.mshome.net).
+#    prefer-ip-address: true
+#
+#rabbitmq:
+#  exchange:
+#    name: fitness.exchange
+#  queue:
+#    name: activity.queue
+#  routing:
+#    key: activity.tracking
+#
+#gemini:
+#  api:
+#    url: ${GEMINI_API_URL}
+#    key: ${GEMINI_API_KEY}
+
 server:
   port: 8083
 
@@ -6,10 +45,11 @@ spring:
     name: ai-service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/fitness_recommendation
+      # CHANGED: localhost -> mongodb
+      uri: mongodb://mongodb:27017/fitness_recommendation
       database: fitness_recommendation
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: guest
     password: guest
@@ -17,11 +57,8 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
+      defaultZone: http://discovery-server:8761/eureka/
   instance:
-    # This instructs Eureka to register the IP address of the user-service
-    # instead of its internal hostname (LAPTOP-1IESOV53.mshome.net).
     prefer-ip-address: true
 
 rabbitmq:
