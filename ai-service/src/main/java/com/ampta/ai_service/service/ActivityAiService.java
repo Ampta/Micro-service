@@ -52,7 +52,7 @@ public class ActivityAiService {
             JsonNode analysisNode = analysisJson.path("analysis");
             StringBuilder fullAnalysis = new StringBuilder();
             addAnalysisSection(fullAnalysis, analysisNode, "overall", "Overall:");
-            addAnalysisSection(fullAnalysis, analysisNode, "pace", "Overall:");
+            addAnalysisSection(fullAnalysis, analysisNode, "pace", "Pace:");
             addAnalysisSection(fullAnalysis, analysisNode, "heartRate", "Heart Rate:");
             addAnalysisSection(fullAnalysis, analysisNode, "caloriesBurned", "Calories Burned:");
 
