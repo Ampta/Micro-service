@@ -140,6 +140,13 @@ Once the containers are running, you need to configure the Identity Provider (Ke
 7. Click **Save**.
 
 ---
+### Screenshots Attached 
+
+<img width="1898" height="950" alt="Screenshot 2025-12-03 151755" src="https://github.com/user-attachments/assets/0a1f61a7-4cea-42e4-bf9a-2838ec90d7b6" />
+<img width="1907" height="905" alt="Screenshot 2025-12-03 152233" src="https://github.com/user-attachments/assets/ccf3cd1d-f42f-4f18-9f20-78785fc450da" />
+<img width="1900" height="905" alt="Screenshot 2025-12-03 152807" src="https://github.com/user-attachments/assets/5b77a401-f35c-468a-8bcf-538a80251db9" />
+
+
 
 ## 4. Stopping the Application
 
@@ -147,3 +154,6 @@ To stop all services, remove the containers, and clean up the networks, run:
 
 ```bash
 docker compose down
+
+
+
